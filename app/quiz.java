@@ -16,14 +16,11 @@
                 }
                 return true;
             }
-            
-            public static void main(String args[]){
                 
-                
-                //user space
-                System.out.print("ddsdsdsdd");
-                //checkPassword(x);
-            }
-            
-        }
-        
+            public static void main(String args[])
+{
+
+ //write your code here.
+    
+
+}}

@@ -13,6 +13,7 @@ class QController extends Controller
     
     
     public function execute(Request $request){
+        $userCode =  strstr($request['code'],'public static void main');
         File::put('../app/quiz.java',"
         public class quiz {
             public static char[] real = {'a', 'b', 'c' ,'d', 'e','f'};
@@ -31,27 +32,24 @@ class QController extends Controller
                 }
                 return true;
             }
-            
-            public static void main(String args[]){
                 
-                
-                //user space
-                ");
-                
-                
-                File::append('../app/quiz.java',$request['userCode']);
-                File::append('../app/quiz.java',"
-                //checkPassword(x);
-            }
-            
-        }
-        ");
-        
-        $complie = shell_exec("cd ../app; javac quiz.java  2>&1");
-        $output = shell_exec("cd ../app; java quiz 2>&1");
-       if($output == '')
-        return $complie;
+            ");
+                File::append('../app/quiz.java',$userCode);
+                File::append('../app/quiz.java','}');
 
-        return $output;
+            
+    
+      
+        
+        $compile = shell_exec("cd ../app; javac quiz.java  2>&1");
+
+        if(strlen($compile) != 0 )
+            return view('welcome',['error' => $compile]);
+
+        $output = shell_exec("cd ../app; java quiz 2>&1");
+       if(strlen($output) != 0)
+            return view('welcome',['output' => $output]);
+
+            return view('welcome',['empty' => 'No Output']);
     }
 }
