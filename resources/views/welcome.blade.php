@@ -10,86 +10,67 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
+        {{--  <link href="{!! asset('css/prism.css') !!}" rel="stylesheet" />  --}}
+        {{--  <script src="{!! asset('js/prism.js') !!}"></script>  --}}
+
+        <link rel="stylesheet/less" type="text/css" href="{!! asset('css/styles.less') !!}" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+        {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js" ></script>  --}}
+        <link rel="stylesheet"
+
+
         <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+        {{--  <script src="{!! asset('js/js.js') !!}"></script>
+        <script src="{!! asset('js/prism.js') !!}"></script>  --}}
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+            {{--  <script src="{!! asset('js/prism.js') !!}"></script>
+            <script src="{!! asset('js/js.js') !!}"></script>  --}}
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+        <main class="view">
+            <h1 class="title">
+FTC Challenge
+                <small>اتحداكم تحلونه</small>
+            </h1>
+        
+            <div class="window">
+                <div class="window-header">
+                    <div class="action-buttons"></div>
+                    <select class="language">
+                        <option value="javascript" selected>Java</option>
+ 
+                    </select>
                 </div>
+                <div class="window-body">
+                            
+                    <textarea class="code-input" style="color:navy">
+        public static boolean checkPassword(char[] pass){
+                             .
+                             .
+        }
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+        public static void main(String args[]){
+
+
+    //write your code here.
+    // try to make the 'checkPassword' method to return true,
+    // by guessing the correct password
+
+
+        }
+
+    </textarea>
+
+                    <pre class="code-output">
+                        <code class="language-javascript">
+                            
+                        </code>
+                    </pre>
                 </div>
             </div>
-        </div>
+
+        </main>
     </body>
 </html>
