@@ -20,17 +20,23 @@ class QController extends Controller
     }
     
     public function execute(Request $request){
+        $dirName = request()->ip();
+
+        if(! File::exists("../app/files/$dirName/quiz.java")){
+            File::makeDirectory("../app/files/$dirName", $mode = 0777, true, true);
+        }
         $userCode =  strstr($request['code'],'public static void main');
 
         if(! $this->checkString($userCode)){
-            return view('welcome',['empty' => 'You are trying to do something sneaky :)']);
+            return view('welcome',['empty' => 'You are trying to do something sneaky :)','code' => $userCode]);
         }
      
-        File::put('../app/quiz.java',"
-        public class quiz {
-            public static char[] real = {'a', 'b', 'c' ,'d', 'e','f'};
+        File::put("../app/files/$dirName/quiz.java","
+        public class quiz  {
+            public static char[] real = {'m', 'h', '7' ,'s', 'n','m','h','a','y','6','y'};
             
             public static boolean checkPassword(char[] pass){
+
                 for(int i = 0; i < pass.length && i < real.length; i++)
                 if(pass[i] == real[i]){
                     try{
@@ -42,26 +48,28 @@ class QController extends Controller
                 }else{
                     return false;
                 }
+                if(real.length != pass.length)
+                    return false;
                 return true;
             }
                 
             ");
-                File::append('../app/quiz.java',$userCode);
-                File::append('../app/quiz.java','}');
+                File::append("../app/files/$dirName/quiz.java",$userCode);
+                File::append("../app/files/$dirName/quiz.java",'}');
 
             
     
       
         
-        $compile = shell_exec("cd ../app; javac quiz.java  2>&1");
+        $compile = shell_exec("cd ../app/files/$dirName; javac quiz.java  2>&1");
 
         if(strlen($compile) != 0 )
-            return view('welcome',['error' => $compile]);
+            return view('welcome',['error' => $compile,'code' => $userCode]);
 
-        $output = shell_exec("cd ../app; java quiz 2>&1");
+        $output = shell_exec("cd ../app/files/$dirName; java quiz 2>&1");
        if(strlen($output) != 0)
-            return view('welcome',['output' => $output]);
+            return view('welcome',['output' => $output,'code' => $userCode]);
 
-            return view('welcome',['empty' => 'No Output']);
+            return view('welcome',['empty' => 'No Output','code' => $userCode ]);
     }
 }

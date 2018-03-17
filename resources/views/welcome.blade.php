@@ -25,6 +25,12 @@
         <script src="{!! asset('js/prism.js') !!}"></script>  --}}
 
         <style>
+                @media only screen and (max-width: 500px) {
+                    .window {
+                        width: 95%; !important
+                    }
+                }
+
                 .button {
                     background-color: #4CAF50; /* Green */
                     border: none;
@@ -90,14 +96,14 @@ public static boolean checkPassword(char[] pass){ ... }
      // try to make the 'checkPassword' method to return true,
      // by guessing the correct password
      //anything outside of the main method will be ignored.
-
+     
+{{$code or '
 public static void main(String args[])
 {
 
  //write your code here.
     
-
-}
+}'}}
 
                      </textarea>
 
