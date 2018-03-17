@@ -116,11 +116,9 @@ public static void main(String args[])
         {{ Form::close()}}
             <br>
             <br>
-            @if( ! empty($empty))
             <div>
-                   <span style="color:black; font-size:35px; font-weight:300"> {{$empty or ''}} </span>
+                   <span style="color:black; font-size:35px; font-weight:300"> {{$empty or 'ss'}} </span>
             </div>
-            @endif
 
             @if(! empty($error))
         <div class="error">
