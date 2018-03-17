@@ -81,8 +81,7 @@ FTC Challenge
                 </div>
                 <div class="window-body">
 
-                        <form method="POST" action="/">
-                   
+                        {{Form::open(['action' => ['QController@execute']])}}                   
             
                            
                     <textarea class="code-input" id="code" name="code" type="textarea" style="color:navy;">
@@ -114,7 +113,7 @@ public static void main(String args[])
             <div >
                     <button type="submit" class="button button1">Submit</button>
             </div>
-        </form>
+        {{ Form::close()}}
             <br>
             <br>
             @if( ! empty($empty))
