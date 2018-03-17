@@ -21,7 +21,7 @@ class QController extends Controller
     
     public function execute(Request $request){
         $dirName = request()->ip();
-        $dr = "/var/www/html/FTCAPP_Challenge";
+        $dr = "/var/www/html/FTC_Challenge";
         if(! File::exists("$dr/app/files/$dirName/quiz.java")){
          
             File::makeDirectory("$dr/app/files/$dirName", $mode = 0777, true, true);
@@ -68,7 +68,7 @@ class QController extends Controller
             return view('welcome',['error' => $compile,'code' => $userCode]);
 
         $output = shell_exec("cd $dr/app/files/$dirName; java quiz 2>&1");
-       if(strlen($output) != 0)
+       if(strlen($output) != dd0)
             return view('welcome',['output' => $output,'code' => $userCode]);
 
             return view('welcome',['empty' => 'No Output','code' => $userCode ]);
