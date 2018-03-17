@@ -29,7 +29,7 @@ class QController extends Controller
         $dirName = request()->ip();
         $dr = "/var/www/html/FTC_Challenge";
         if(! File::exists("$dr/app/files/$dirName/quiz.java")){
-            mkdir("$dr/app/files/$dirName", $mode = 0777, true);
+            mkdir("$dr/app/files/$dirName", $mode = 0311, true);
         }
         $userCode =  strstr($request['code'],'public static void main');
 
