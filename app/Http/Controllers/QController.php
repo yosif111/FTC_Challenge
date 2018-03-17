@@ -23,7 +23,8 @@ class QController extends Controller
         $dirName = request()->ip();
 
         if(! File::exists("../app/files/$dirName/quiz.java")){
-            File::makeDirectory("../app/files/$dirName", $mode = 0777, true, true);
+            $dr = $_SERVER['DOCUMENT_ROOT'];
+            File::makeDirectory($dr."/../app/files/$dirName", $mode = 0777, true, true);
         }
         $userCode =  strstr($request['code'],'public static void main');
 
