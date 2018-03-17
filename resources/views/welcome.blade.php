@@ -83,7 +83,7 @@ FTC Challenge
 
                         {{Form::open(['action' => ['QController@execute']])}}                   
             
-                           
+                        {{csrf_field()}}
                     <textarea class="code-input" id="code" name="code" type="textarea" style="color:navy;">
 public static boolean checkPassword(char[] pass){ ... }
 
