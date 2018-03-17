@@ -21,10 +21,10 @@ class QController extends Controller
     
     public function execute(Request $request){
         $dirName = request()->ip();
-        $dr = $_SERVER['DOCUMENT_ROOT'];
-        if(! File::exists("../app/files/$dirName/quiz.java")){
+        $dr = "/var/www/html/FTCAPP_Challenge";
+        if(! File::exists("$dr/app/files/$dirName/quiz.java")){
          
-            File::makeDirectory($dr."/../app/files/$dirName", $mode = 0777, true, true);
+            File::makeDirectory("$dr/app/files/$dirName", $mode = 0777, true, true);
         }
         $userCode =  strstr($request['code'],'public static void main');
 
@@ -32,7 +32,7 @@ class QController extends Controller
             return view('welcome',['empty' => 'You are trying to do something sneaky :)','code' => $userCode]);
         }
      
-        File::put($dr."/../app/files/$dirName/quiz.java","
+        File::put("$dr/app/files/$dirName/quiz.java","
         public class quiz  {
             public static char[] real = {'m', 'h', '7' ,'s', 'n','m','h','a','y','6','y'};
             
@@ -55,19 +55,19 @@ class QController extends Controller
             }
                 
             ");
-                File::append("../app/files/$dirName/quiz.java",$userCode);
-                File::append("../app/files/$dirName/quiz.java",'}');
+                File::append("$dr/app/files/$dirName/quiz.java",$userCode);
+                File::append("$dr/app/files/$dirName/quiz.java",'}');
 
             
     
       
         
-        $compile = shell_exec("cd ../app/files/$dirName; javac quiz.java  2>&1");
+        $compile = shell_exec("cd $dr/app/files/$dirName; javac quiz.java  2>&1");
 
         if(strlen($compile) != 0 )
             return view('welcome',['error' => $compile,'code' => $userCode]);
 
-        $output = shell_exec("cd ../app/files/$dirName; java quiz 2>&1");
+        $output = shell_exec("cd $dr/app/files/$dirName; java quiz 2>&1");
        if(strlen($output) != 0)
             return view('welcome',['output' => $output,'code' => $userCode]);
 
