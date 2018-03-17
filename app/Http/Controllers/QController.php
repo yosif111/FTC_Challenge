@@ -12,12 +12,17 @@ class QController extends Controller
     
     public function checkString($userCode){
         if(strpos($userCode, 'Runtime') || strpos($userCode, 'Process') || strpos($userCode, 'exec')
-        || strpos($userCode, 'Scanner') || strpos($userCode, 'Buffer') ||  strpos($userCode, 'real')
+        || strpos($userCode, 'Scanner') || strpos($userCode, 'Buffer') ||  strpos($userCode, 'real') ||
+        strpos($userCode, ".read(") || strpos($userCode, 'Runtime') || strpos($userCode, 'file') ||
+        strpos($userCode, 'process')
         ){
             return false;
         }
         return true;
     }
+
+
+
     
     public function execute(Request $request){
         $dirName = request()->ip();
