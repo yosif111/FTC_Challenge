@@ -21,9 +21,9 @@ class QController extends Controller
     
     public function execute(Request $request){
         $dirName = request()->ip();
-
+        $dr = $_SERVER['DOCUMENT_ROOT'];
         if(! File::exists("../app/files/$dirName/quiz.java")){
-            $dr = $_SERVER['DOCUMENT_ROOT'];
+         
             File::makeDirectory($dr."/../app/files/$dirName", $mode = 0777, true, true);
         }
         $userCode =  strstr($request['code'],'public static void main');
@@ -32,7 +32,7 @@ class QController extends Controller
             return view('welcome',['empty' => 'You are trying to do something sneaky :)','code' => $userCode]);
         }
      
-        File::put("../app/files/$dirName/quiz.java","
+        File::put($dr."/../app/files/$dirName/quiz.java","
         public class quiz  {
             public static char[] real = {'m', 'h', '7' ,'s', 'n','m','h','a','y','6','y'};
             
