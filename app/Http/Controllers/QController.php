@@ -15,7 +15,7 @@ class QController extends Controller
         || strpos($userCode, 'Scanner') || strpos($userCode, 'Buffer') ||  strpos($userCode, 'real') ||
         strpos($userCode, ".read(") || strpos($userCode, 'Runtime') || strpos($userCode, 'file') ||
         strpos($userCode, 'process') || strpos($userCode, 'File') || strpos($userCode, 'getProperty') ||
-        strpos($userCode, 'import') || strpos($userCode, 'class')
+        strpos($userCode, 'import') || strpos($userCode, 'class') || strpos($userCode, 'Class')
         ){
             return false;
         }
@@ -39,7 +39,7 @@ class QController extends Controller
      
         File::put("$dr/app/files/$dirName/quiz.java","
         public class quiz  {
-            public static char[] real = {'m', 'h', '7' ,'s', 'n','m','h','a','y','6','y'};
+            public static char[] real = {'f', 't', 'c' ,'k', 's','u','c','c','i','s'};
             
             public static boolean checkPassword(char[] pass){
 
