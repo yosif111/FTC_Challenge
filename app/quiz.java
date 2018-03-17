@@ -22,5 +22,40 @@
 
  //write your code here.
     
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
+    System.out.println("fff");
 
 }}

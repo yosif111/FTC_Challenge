@@ -81,7 +81,7 @@ FTC Challenge
                 </div>
                 <div class="window-body">
 
-                        <form method="POST" action="/challenge/execute">
+                        <form method="POST" action="/">
                    
             
                            
