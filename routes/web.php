@@ -12,5 +12,8 @@
 */
 Route::get('/',function(){
     return view('welcome');
-});
+})->name('/');
 Route::post('/execute','QController@execute');
+Route::get('/execute',function(){
+    return redirect()->route('/');
+});
