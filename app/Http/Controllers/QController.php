@@ -14,7 +14,8 @@ class QController extends Controller
         if(strpos($userCode, 'Runtime') || strpos($userCode, 'Process') || strpos($userCode, 'exec')
         || strpos($userCode, 'Scanner') || strpos($userCode, 'Buffer') ||  strpos($userCode, 'real') ||
         strpos($userCode, ".read(") || strpos($userCode, 'Runtime') || strpos($userCode, 'file') ||
-        strpos($userCode, 'process') || strpos($userCode, 'File') || strpos($userCode, 'getProperty')
+        strpos($userCode, 'process') || strpos($userCode, 'File') || strpos($userCode, 'getProperty') ||
+        strpos($userCode, 'import')
         ){
             return false;
         }
