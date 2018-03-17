@@ -10,10 +10,22 @@ class QController extends Controller
     
     
     
-    
+    public function checkString($userCode){
+        if(strpos($userCode, 'Runtime') || strpos($userCode, 'Process') || strpos($userCode, 'exec')
+        || strpos($userCode, 'Scanner') || strpos($userCode, 'Buffer') ||  strpos($userCode, 'real')
+        ){
+            return false;
+        }
+        return true;
+    }
     
     public function execute(Request $request){
         $userCode =  strstr($request['code'],'public static void main');
+
+        if(! $this->checkString($userCode)){
+            return view('welcome',['empty' => 'You are trying to do something sneaky :)']);
+        }
+     
         File::put('../app/quiz.java',"
         public class quiz {
             public static char[] real = {'a', 'b', 'c' ,'d', 'e','f'};
