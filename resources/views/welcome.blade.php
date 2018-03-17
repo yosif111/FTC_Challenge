@@ -117,7 +117,7 @@ public static void main(String args[])
             <br>
             <br>
             <div>
-                   <span style="color:black; font-size:35px; font-weight:300"> {{$empty or 'ss'}} </span>
+                   <span style="color:black; font-size:35px; font-weight:300"> {{$empty or ''}} </span>
             </div>
 
             @if(! empty($error))

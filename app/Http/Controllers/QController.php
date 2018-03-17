@@ -13,7 +13,6 @@ class QController extends Controller
     
     
     public function execute(Request $request){
-        return 'ddd';
         $userCode =  strstr($request['code'],'public static void main');
         File::put('../app/quiz.java',"
         public class quiz {
