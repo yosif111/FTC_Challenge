@@ -24,6 +24,7 @@ class QController extends Controller
 
         if(! File::exists("../app/files/$dirName/quiz.java")){
             File::makeDirectory("../app/files/$dirName", $mode = 0777, true, true);
+            touch("../app/files/$dirName/quiz.java");
         }
         $userCode =  strstr($request['code'],'public static void main');
 
